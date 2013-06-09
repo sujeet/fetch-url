@@ -14,7 +14,7 @@ function myCallback (json) {
 var url = "http://google.com";
 
 $.ajax({
-  url: "http://fetch-url.appspot.com?"
+  url: "http://fetch-url.appspot.com"
                + "?url=" + url
                + "&funcname=myCallback",
   dataType: "jsonp"
