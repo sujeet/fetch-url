@@ -5,7 +5,7 @@ A nifty URL fetcher returning source in JSONP.
 
 Example
 -------
-```
+```javascript
 function myCallback (json) {
     var page_source = json.source;
     // do stuff with page source here.
