@@ -13,12 +13,17 @@ Example
 function wget(url) {
   var request = new XMLHttpRequest();
   var fetcherApp = 'https://fetch-url.appspot.com';
-  request.open('GET', fetcherApp + '?url=' + url, async=false);
+  request.open('GET',
+               fetcherApp + '?url=' + url,
+               async=false);
   request.send(data=null);
   if (request.status == 200) {
     return request.responseText;
   }
-  throw new Error('wget ' + url + ' returned status: ' + request.status);
+  throw new Error('wget ' + 
+                  url + 
+                  ' returned status: ' + 
+                  request.status);
 }
 
 var url = 'https://sujeet.github.io';
