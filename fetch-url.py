@@ -5,10 +5,9 @@ from google.appengine.api import urlfetch
 class MainPage(webapp2.RequestHandler):
 
     def get(self):
-        self.response.headers['Content-Type'] = 'application/json'
-        source_code = urlfetch.fetch (self.request.GET['url']).content
-        function_name = self.request.GET ['funcname']
-        self.response.write("%s(%s);"%(function_name,json.dumps({'source':source_code})))
+        self.response.headers.add_header('Access-Control-Allow-Origin', '*')
+        self.response.headers['Content-Type'] = 'text/plain'
+        self.response.write(urlfetch.fetch(self.request.GET['url']).content)
 
 application = webapp2.WSGIApplication([
     ('/', MainPage),

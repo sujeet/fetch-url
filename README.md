@@ -1,22 +1,27 @@
 fetch-url
 =========
 
-A nifty URL fetcher returning source in JSONP.
+A Google App Engine app that fetches a given URL and
+returns the contents in plaintext. Can be used as a proxy
+for static content on third-party websites that can not
+be queried through JavaScript because those third-party
+websites do not have CORS enabled.
 
 Example
 -------
 ```javascript
-function myCallback (json) {
-    var page_source = json.source;
-    // do stuff with page source here.
+function wget(url) {
+  var request = new XMLHttpRequest();
+  var fetcherApp = 'https://fetch-url.appspot.com';
+  request.open('GET', fetcherApp + '?url=' + url, async=false);
+  request.send(data=null);
+  if (request.status == 200) {
+    return request.responseText;
+  }
+  throw new Error('wget ' + url + ' returned status: ' + request.status);
 }
 
-var url = "http://google.com";
+var url = 'https://sujeet.github.io';
 
-$.ajax({
-  url: "http://fetch-url.appspot.com"
-               + "?url=" + url
-               + "&funcname=myCallback",
-  dataType: "jsonp"
-});
+console.log(wget(url));
 ```
