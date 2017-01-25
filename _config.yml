@@ -1,5 +1,5 @@
 title: Fetch-url
-description: A nifty URL fetcher returning source in JSONP.
+description: A simple CORS enabled server to fetch resources on third-party sites.
 google_analytics: 
 show_downloads: true
 theme: jekyll-theme-hacker
