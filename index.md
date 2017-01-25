@@ -15,8 +15,8 @@ function wget(url) {
   var fetcherApp = 'https://fetch-url.appspot.com';
   request.open('GET',
                fetcherApp + '?url=' + url,
-               async=false);
-  request.send(data=null);
+               false);
+  request.send(null);
   if (request.status == 200) {
     return request.responseText;
   }
